@@ -237,7 +237,7 @@ h1{
 aside {
     position: fixed;
     top: 50%;
-    left: 97%;
+    left: 0%;
     transform: translateY(-50%);
     z-index: 100;
 }
@@ -612,4 +612,145 @@ iframe {
     line-height: 1.6;
     color: #333;
     text-align: justify;
+}
+
+/* Header Responsivo */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 0;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column; /* Cambia a diseño vertical */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Espacio entre los enlaces */
+    }
+
+    nav ul li a {
+        font-size: 16px; /* Reduce el tamaño de la fuente */
+    }
+}
+
+/* Responsividad para #obj */
+@media (max-width: 768px) {
+    #obj .contenido {
+        flex-direction: column; /* Cambia a diseño vertical */
+        align-items: center; /* Centra las tarjetas */
+    }
+
+    #obj .cardv {
+        width: 100%; /* Asegura que las tarjetas ocupen todo el ancho */
+        max-width: 300px; /* Limita el ancho máximo */
+        margin: 15px 0; /* Espaciado entre tarjetas */
+    }
+}
+
+/* Ajustes adicionales para pantallas aún más pequeñas */
+@media (max-width: 480px) {
+    #obj .cardv {
+        width: 90%; /* Reduce el ancho para pantallas muy pequeñas */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Reduce aún más el tamaño de la fuente del menú */
+    }
+}
+
+
+article {
+    padding: 20px;
+    margin: 10px 0;
+}
+
+/* Estilos responsivos para dispositivos móviles */
+@media (max-width: 768px) {
+    article {
+        padding: 10px;
+        margin: 5px 0;
+    }
+
+    article h1 {
+        font-size: 1.5em;
+    }
+
+    article p {
+        font-size: 1em;
+    }
+
+    /* Hacer que las imágenes se ajusten al tamaño del contenedor */
+    article img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* Ajustar los contenidos en las secciones dentro de los artículos */
+    .contenido {
+        display: block;
+        text-align: center;
+    }
+
+    /* En el caso de las tarjetas */
+    .cardv {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .cardv .card-inner {
+        flex-direction: column; /* Apilar las imágenes y el texto verticalmente */
+    }
+
+    .cardv .card-front, .cardv .card-back {
+        width: 100%;
+    }
+
+    /* Ajustar las columnas dentro de 'más sobre nosotros' */
+    .column {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ajustar el mapa de Google */
+    iframe {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+/* Para pantallas pequeñas como móviles */
+@media (max-width: 480px) {
+    article h1 {
+        font-size: 1.2em;
+    }
+
+    article p {
+        font-size: 0.9em;
+    }
+
+    .cardv {
+        margin: 5px 0;
+    }
+
+    .cardv .card-front h3 {
+        font-size: 1em;
+    }
+
+    .cardv .card-back p {
+        font-size: 0.9em;
+    }
+
+    /* Hacer que los enlaces de redes sociales se ajusten */
+    #contactos ul li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    /* Reducir el tamaño del footer */
+    footer {
+        font-size: 0.9em;
+    }
 }
