@@ -743,11 +743,6 @@ article {
         font-size: 0.9em;
     }
 
-    /* Hacer que los enlaces de redes sociales se ajusten */
-    #contactos ul li {
-        display: inline-block;
-        margin: 0 5px;
-    }
 
     /* Reducir el tamaño del footer */
     footer {
