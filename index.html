@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0", user-scalable=no>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa Berakah</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="img/casa.png">
@@ -350,7 +350,17 @@
                 }
             });
         });
-    </script>
+
+    if (window.innerWidth < 1024) {
+        var viewport = document.querySelector("meta[name=viewport]");
+        viewport.parentNode.removeChild(viewport);  // Elimina la metaetiqueta original
+        var newViewport = document.createElement('meta');
+        newViewport.name = "viewport";
+        newViewport.content = "width=1024, initial-scale=1, user-scalable=no";
+        document.head.appendChild(newViewport);
+    }
+</script>
+
     
 </body>
 </html>
