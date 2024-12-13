@@ -1,0 +1,615 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+#contenedor{
+    max-width: 99%;
+    text-align: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+
+/* Fondo oscuro con texto claro */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #222; /* Fondo oscuro */
+    color: #fff; /* Texto claro */
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+    border-radius: 50px;
+}
+
+/* Diseño de la cabecera */
+header {
+    background-color: #111;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed; /* Fija el header */
+    top: 0;          /* Lo coloca en la parte superior */
+    left: 0;
+    width: 100%;     /* Asegura que ocupe todo el ancho */
+    z-index: 1000;   /* Lo coloca sobre otros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Agrega una sombra para mayor visibilidad */
+    animation: slideDown 1s ease-out; /* Animación de entrada */
+}
+
+/* Lista de navegación */
+nav ul {
+    list-style: none;
+    padding: 0;
+    animation: fadeIn 1.5s ease-out 0.5s; /* Aparece con un retraso */
+}
+
+/* Estilo de los enlaces */
+nav ul li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: #dcb44d; /* Amarillo dorado al pasar el mouse */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: #dcb44d;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* Subrayado animado al pasar el mouse */
+}
+
+/* Animaciones */
+
+/* Entrada del header desde arriba */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Aparición gradual de los elementos */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+section{
+    width: 99.5%;
+}
+
+/* Estilo para centrar el contenido */
+#inicio {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    position: relative;
+
+}
+
+/* Overlay oscuro para mejorar legibilidad */
+/* Overlay oscuro */
+#inicio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad (0.5 = 50%) */
+    z-index: 1; /* Coloca la capa debajo del contenido pero sobre el fondo */
+    border-radius: 50px;
+}
+
+/* Asegura que el contenido de #inicio esté encima del overlay */
+#inicio > *, #nosotros > * {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+#nosotros::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad (0.5 = 50%) */
+    z-index: 1; /* Coloca la capa debajo del contenido pero sobre el fondo */
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+#inicio h1 {
+    font-size: 80px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+#inicio p {
+    font-size: 40px;
+    font-style: italic;
+}
+
+
+
+/* Estilos generales de los artículos */
+/* General para los artículos */
+#contenedor article {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* Artículo visible: entra con barrido */
+#contenedor article.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Artículo saliendo: desaparece con barrido */
+#contenedor article.exiting {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+
+
+#mision {
+    background-color: #3c3c3c;
+    border-radius: 50px;
+}
+
+#vision {
+    background-color: #5b5b5b; 
+    border-radius: 50px;
+}
+
+#valores {
+    background-color: #555555; 
+    border-radius: 50px;
+}
+
+#nosotros {
+    background-color: #656565; 
+}
+
+
+
+article h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+article p {
+    font-size: 25px;
+    line-height: 1.6;
+}
+
+h1{
+    text-transform: uppercase;
+}
+
+
+/* Estilo del aside (redes sociales) */
+aside {
+    position: fixed;
+    top: 50%;
+    left: 97%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+#contactos ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+#contactos ul li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Ancho del círculo */
+    height: 50px; /* Altura del círculo */
+    border-radius: 50%; /* Hace que el elemento sea redondo */
+    background-color: #222; /* Fondo oscuro */
+    border: 2px solid #dcb44d; /* Borde amarillo dorado */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#contactos ul li a {
+    font-size: 20px; /* Tamaño del ícono */
+    color: #fff;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Alinea el texto/ícono dentro del círculo */
+    width: 100%;
+}
+
+#contactos ul li:hover {
+    transform: scale(1.2); /* Agranda el círculo */
+    background-color: #dcb44d; /* Cambia el fondo a amarillo dorado */
+}
+
+#contactos ul li:hover a {
+    color: #222; /* Cambia el texto/ícono a color oscuro */
+}
+
+/* Pie de página */
+footer {
+    background-color: #323131;
+    text-align: center;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    padding: 20px;
+    color: #888;
+    font-size: 14px;
+}
+
+footer p{   
+    font-style: italic;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    nav ul li {
+        margin-right: 15px;
+    }
+
+    #inicio h1 {
+        font-size: 48px;
+    }
+
+    #inicio p {
+        font-size: 18px;
+    }
+
+    article h1 {
+        font-size: 28px;
+    }
+
+    article p {
+        font-size: 18px;
+    }
+}
+
+/* General Styling */
+
+#nosotros {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 100%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Column Layout */
+#nosotros .contenido {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#nosotros .column {
+    flex: 1;
+    text-align: center;
+}
+
+#obj .contenido {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#obj .column {
+    flex: 1;
+    text-align: center;
+}
+
+
+/* Facebook Image Styling */
+.facebook-section img {
+    width: 150px;
+    height: 150px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    margin: 10px auto;
+    border-radius: 50%;
+}
+
+.facebook-section img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Map Styling */
+iframe {
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+/* About Image Styling */
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px; /* Prevents the image from being too large */
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-image figcaption {
+    margin-top: 10px;
+    font-style: italic;
+    color: #ffffff;
+}
+
+/* Contenedor de las tarjetas */
+.cardv {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px; /* Permite el efecto 3D */
+    margin: 10px;
+    display: inline-block;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.cardv:hover .card-inner {
+    transform: rotateY(180deg); /* Gira la tarjeta al pasar el puntero */
+}
+
+/* Frente y reverso de la tarjeta */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el lado posterior */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Cara frontal */
+.card-front {
+    background-color: #fff;
+}
+
+.card-front img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.card-front h3 {
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Cara trasera */
+.card-back {
+    background-color: #f4f4f4;
+    transform: rotateY(180deg); /* Hace que el reverso esté detrás */
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.card-back p {
+    font-size: 15px;
+}
+
+#obj .cardv {
+    width: 170px;
+    height: 220px;
+    perspective: 1000px; /* Permite el efecto 3D */
+    margin: 10px;
+    display: inline-block;
+}
+
+#obj .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+#obj .cardv:hover .card-inner {
+    transform: rotateY(180deg); /* Gira la tarjeta al pasar el puntero */
+}
+
+/* Frente y reverso de la tarjeta */
+#obj .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el lado posterior */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Cara frontal */
+#obj .card-front {
+    background-color: #fff;
+}
+
+#obj .card-front img {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+
+/* Cara trasera */
+#obj .card-back {
+    background-color: #f4f4f4;
+    transform: rotateY(180deg); /* Hace que el reverso esté detrás */
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+}
+
+#obj .card-back p {
+    font-size: 15px;
+}
+
+.contenido{
+    width: 90%;
+}
+
+#mision, #vision {
+    text-align: center; /* Centra texto dentro del contenedor */
+    display: flex; /* Activa un modelo flexible */
+    flex-direction: column; /* Coloca los hijos en columna */
+    align-items: center; /* Centra los elementos hijos horizontalmente */
+    justify-content: center; /* Centra los elementos hijos verticalmente */
+    margin: 0 auto; /* Asegura que el contenedor se centre en la página */
+    padding: 20px; /* Opcional, para espaciar el contenido */
+}
+
+#facebook{
+    background-color: rgb(0, 48, 180);
+    border-radius:50% ;
+}
+
+#whats{
+    background-color: rgb(0, 182, 36);
+    border-radius:50% ;
+}
+
+#messenger{
+    background-color: rgb(127, 4, 172);
+    border-radius:50% ;
+}
+
+#phone{
+    background-color: rgb(35, 35, 35);
+    border-radius:50% ;
+}
+
+/* Estilos para los articles #mision y #vision */
+#vision, #mision {
+    display: flex;
+    flex-direction: column; /* Asegura que el encabezado esté arriba */
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 90%;
+    background-color: #f9f9f9; /* Fondo minimalista */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+#vision h1, #mision h1 {
+    text-transform: uppercase;
+    margin-bottom: 20px; /* Espacio entre el título y el contenido */
+    text-align: center;
+    font-size: 50px;
+    color: #444; /* Color del texto */
+}
+
+/* Cambia la dirección para el contenido de #vision */
+#vision .contenido, #mision .contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px; /* Espaciado entre imagen y texto */
+}
+
+/* Cambia la dirección para #vision */
+#vision .contenido {
+    flex-direction: row-reverse;
+}
+
+#vision img, #mision img {
+    width: 40%; /* Ajusta el tamaño de las imágenes */
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra minimalista */
+}
+
+#vision img:hover, #mision img:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más destacada */
+}
+
+#vision p, #mision p {
+    flex: 1;
+    font-size: 30px;
+    line-height: 1.6;
+    color: #333;
+    text-align: justify;
+}
